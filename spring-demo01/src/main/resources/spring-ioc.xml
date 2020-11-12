@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--无参构造
+    <bean id="user" class="com.example.beanDemo.User" scope="prototype">-->
+
+    <!--property 字段必须拥有setting方法-->
+    <!--<bean id="user" class="com.example.beanDemo.User" scope="prototype">
+        &lt;!&ndash;        <property name="name" value="zjq"/>&ndash;&gt;
+        &lt;!&ndash;        <property name="age" value="20"/>&ndash;&gt;
+&lt;!&ndash;        <property name="name"> <value><![CDATA[<<南京>>]]></value> </property>&ndash;&gt;
+        <property name="age">
+            <null/>
+        </property>
+        <property name="name"> <value><![CDATA[<<南京>>]]>   </value>  </property>
+
+</bean>-->
+    <!--p标签-->
+    <bean id="user" class="com.example.beanDemo.User" p:age="11" p:name="hahaha"/>
+
+    <bean id="user1" class="com.example.beanDemo.User">
+        <!--  <constructor-arg index="0" value="index"/>
+          <constructor-arg index="1" value="111"/>-->
+        <!--<constructor-arg name="name" value="byName"/>
+        <constructor-arg name="age" value="123"/>-->
+        <constructor-arg type="java.lang.Integer" value="333"/>
+        <constructor-arg type="java.lang.String" value="hahah"/>
+    </bean>
+    <context:property-placeholder location="classpath:db.properties"/>
+
+    <bean id="userService" class="com.example.service.UserService" autowire="byName">
+
+    </bean>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${url}"/>
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!--配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${initialSize}" />
+        <property name="minIdle" value="${minIdle}" />
+        <property name="maxActive" value="${maxActive}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${maxWait}" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${validationQuery}" />
+        <!--建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。-->
+        <property name="testWhileIdle" value="${testWhileIdle}" />
+        <!--申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。-->
+        <property name="testOnBorrow" value="${testOnBorrow}" />
+        <!--归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能-->
+        <property name="testOnReturn" value="${testOnReturn}" />
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${maxPoolPreparedStatementPerConnectionSize}" />
+    </bean>
+    <context:component-scan base-package="com.example"/>
+</beans>
