@@ -15,7 +15,7 @@ public class UserTest {
     public void UserTest(){
         User user = applicationContext.getBean("user", User.class);
         System.out.println(user.toString());
-        user.setAge(9999);
+//        user.setAge(9999);
         User user1 = applicationContext.getBean("user", User.class);
         System.out.println(user1.toString());
         /*User user1 = applicationContext.getBean("user1", User.class);
