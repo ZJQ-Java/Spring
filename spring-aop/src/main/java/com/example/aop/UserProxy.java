@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class UserProxy {
+    /**
+     * execution([权限修饰符 可省略] [返回类型] [类全路径] [方法名称]([参数列表])  )
+     */
     @Pointcut(value = "execution(* com.example.dao.*.*(..))")
     void pointDemo(){
     }
