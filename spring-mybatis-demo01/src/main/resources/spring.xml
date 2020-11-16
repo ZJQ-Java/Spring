@@ -5,11 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       https://www.springframework.org/schema/context/spring-context.xsd">
+       https://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <context:property-placeholder location="classpath:db.properties"/>
     <context:component-scan base-package="com.qiu"/>
-
+    <!--    <mybatis:scan base-package="com.qiu"/>-->
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="url" value="${jdbc.url}"/>
@@ -43,7 +44,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--指定xml文件位置-->
-        <property name="mapperLocations" value="classpath*:com/qiu/dao/xml/*.xml" />
+        <property name="mapperLocations" value="classpath:com/qiu/dao/xml/*.xml"/>
     </bean>
 
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
