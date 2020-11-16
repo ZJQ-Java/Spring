@@ -9,10 +9,10 @@
        https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--无参构造
-    <bean id="user" class="com.example.beanDemo.User" scope="prototype">-->
+    <bean id="user" class="com.qiu.beanDemo.User" scope="prototype">-->
 
     <!--property 字段必须拥有setting方法-->
-    <!--<bean id="user" class="com.example.beanDemo.User" scope="prototype">
+    <!--<bean id="user" class="com.qiu.beanDemo.User" scope="prototype">
         &lt;!&ndash;        <property name="name" value="zjq"/>&ndash;&gt;
         &lt;!&ndash;        <property name="age" value="20"/>&ndash;&gt;
 &lt;!&ndash;        <property name="name"> <value><![CDATA[<<南京>>]]></value> </property>&ndash;&gt;
@@ -23,9 +23,9 @@
 
 </bean>-->
     <!--p标签-->
-    <bean id="user" class="com.example.beanDemo.User" p:age="11" p:name="hahaha"/>
+    <bean id="user" class="com.qiu.beanDemo.User" p:age="11" p:name="hahaha"/>
 
-    <bean id="user1" class="com.example.beanDemo.User">
+    <bean id="user1" class="com.qiu.beanDemo.User">
         <!--  <constructor-arg index="0" value="index"/>
           <constructor-arg index="1" value="111"/>-->
         <!--<constructor-arg name="name" value="byName"/>
@@ -35,7 +35,7 @@
     </bean>
     <context:property-placeholder location="classpath:db.properties"/>
 
-    <bean id="userService" class="com.example.service.UserService" autowire="byName">
+    <bean id="userService" class="com.qiu.service.UserService" autowire="byName">
 
     </bean>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -64,5 +64,5 @@
         <property name="poolPreparedStatements" value="${poolPreparedStatements}" />
         <property name="maxPoolPreparedStatementPerConnectionSize" value="${maxPoolPreparedStatementPerConnectionSize}" />
     </bean>
-    <context:component-scan base-package="com.example"/>
+    <context:component-scan base-package="com.qiu"/>
 </beans>

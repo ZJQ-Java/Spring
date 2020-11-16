@@ -9,6 +9,7 @@
         <module name="spring-demo02" />
         <module name="spring-demo01" />
         <module name="spring-aop" />
+        <module name="spring-mybatis-demo01" />
         <module name="spring-jdbc" />
       </profile>
     </annotationProcessing>
