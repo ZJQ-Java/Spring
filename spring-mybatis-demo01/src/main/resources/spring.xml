@@ -45,6 +45,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <property name="dataSource" ref="dataSource"/>
         <!--指定xml文件位置-->
         <property name="mapperLocations" value="classpath:com/qiu/dao/xml/*.xml"/>
+<!--        指定mybatsi-xml 主要配置setting typeAliases-->
+<!--        <property name="configLocation" value="mybatis-config.xml"/>-->
     </bean>
 
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
