@@ -12,4 +12,12 @@
     <select id="selectUser" resultMap="UserResultMap">
         select * from user;
     </select>
+
+
+    <insert id="addUser"  parameterType="com.qiu.entity.User">
+                insert into user(name,pwd,create_time,modify_time) values (#{name},#{pwd},#{createTime},#{modifyTime});
+    </insert>
+    <delete id="delUser" parameterType="com.qiu.entity.User">
+        delete from user where id=#{id}
+    </delete>
 </mapper>
